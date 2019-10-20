@@ -1,0 +1,63 @@
+{
+  "name": "@laylazi/bootstrap-rtl-scss",
+  "version": "4.3.117",
+  "official version": "4.3.1",
+  "revision": "17",
+  "description": "SCSS resources of Bootstrap 4.x RTL for theming purposes",
+  "author": "Arash Laylazi <arash@laylazi.ir>",
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "rtl",
+    "bootstrap"
+  ],
+  "files": [
+    "dist/css/*.{css,map}",
+    "scss/**/*.scss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PerseusTheGreat/bootstrap-rtl-npm-scss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PerseusTheGreat/bootstrap-rtl-npm-scss/issues"
+  },
+  "scripts": {
+    "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
+    "css-lint-main": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
+    "css-lint-vars": "fusv scss/",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/ -o dist/css/",
+    "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css-minify": "npm-run-all --parallel css-minify-*",
+    "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap.min.css dist/css/bootstrap.css && cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-grid.min.css dist/css/bootstrap-grid.css && cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-reboot.min.css dist/css/bootstrap-reboot.css",
+    "css-minify-rtl": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-rtl.min.css dist/css/bootstrap-rtl.css && cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-grid-rtl.min.css dist/css/bootstrap-grid-rtl.css && cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/bootstrap-reboot-rtl.min.css dist/css/bootstrap-reboot-rtl.css",
+    "dist": "npm-run-all css-compile css-prefix css-minify",
+    "test": "npm-run-all css-lint dist",
+    "update-deps": "ncu -u && npm install -f",
+    "refresh": "npm update -f && npm install -f && npm audit fix -f && npm rebuild -f"
+  },
+  "style": [
+    "dist/css/bootstrap.css",
+    "dist/css/bootstrap-rtl.css"
+  ],
+  "sass": [
+    "scss/bootstrap.scss",
+    "scss/bootstrap-rtl.scss"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^9.6.5",
+    "clean-css-cli": "^4.3.0",
+    "find-unused-sass-variables": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.3",
+    "stylelint": "^11.1.1",
+    "stylelint-config-twbs-bootstrap": "^0.7.0"
+  }
+}
