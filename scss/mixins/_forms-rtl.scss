@@ -53,6 +53,7 @@
   .#{$state}-tooltip {
     position: absolute;
     top: 100%;
+    right: 0; //rtl
     z-index: 5;
     display: none;
     max-width: 100%; // Contain to parent when possible
