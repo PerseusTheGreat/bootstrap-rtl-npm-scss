@@ -1,7 +1,7 @@
 {
   "name": "@laylazi/bootstrap-rtl-scss",
-  "version": "4.5.2-1",
-  "official version": "4.5.2",
+  "version": "4.5.3-1",
+  "official version": "4.5.3",
   "revision": "1",
   "description": "SCSS resources of Bootstrap 4.x RTL for theming purposes",
   "author": "Arash Laylazi <arash@laylazi.ir>",
@@ -30,7 +30,7 @@
   },
   "scripts": {
     "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
-    "css-lint-main": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
+    "css-lint-main": "stylelint \"scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache --rd",
     "css-lint-vars": "fusv scss/",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/ -o dist/css/",
     "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
@@ -56,8 +56,8 @@
     "find-unused-sass-variables": "^2.0.0",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.1",
-    "stylelint": "^13.6.1",
-    "stylelint-config-twbs-bootstrap": "^2.0.3"
+    "postcss-cli": "^8.1.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-twbs-bootstrap": "^2.1.0"
   }
 }

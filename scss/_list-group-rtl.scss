@@ -96,7 +96,7 @@
     .list-group-horizontal#{$infix} {
       flex-direction: row;
 
-      .list-group-item {
+      > .list-group-item {
         &:first-child {
           @include border-bottom-right-radius($list-group-border-radius); //rtl
           @include border-top-left-radius(0); //rtl
@@ -111,7 +111,7 @@
           margin-top: 0;
         }
 
-        & + .list-group-item {
+        + .list-group-item {
           border-top-width: $list-group-border-width;
           border-right-width: 0; //rtl
 
